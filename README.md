@@ -7,7 +7,7 @@ Unofficial LineageOS 23.2 for Xiaomi Mi439 variants.
 Use the [main release](https://github.com/unicastbg/mi439-builds/releases/tag/mi439-23.2-20261005-test):
 
 - Normal ROM: `lineage-23.2-20261006-UNOFFICIAL-Mi439.zip`.
-- Corrected standalone recovery: `recovery-cert-fixed.img`.
+- Corrected standalone recovery: `recovery-community.img`.
 - Migration ZIP: filename containing `migration`, only for the first transition from official LineageOS 23.2.
 - Verify each download using its matching `.sha256` file. GitHub's Source code archives are not ROM packages.
 
