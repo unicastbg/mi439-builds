@@ -13,9 +13,48 @@ Use the [latest normal release](https://github.com/unicastbg/mi439-builds/releas
 
 ## Installation and Updates
 
-Back up important data. From official LineageOS 23.2: sideload the migration ZIP, boot Android once, then promptly sideload the normal ROM ZIP and wait for status 0. Do not wipe/format data or repeat migration on an existing community normal build.
+Back up important data first. These migration steps are for an existing official LineageOS 23.2 installation, not stock MIUI or an older Android release. Install Android Platform Tools on the computer, enable USB debugging on the phone, authorize the computer, and put both downloaded ZIPs in the directory where you run the commands. If USB debugging is unavailable, enter recovery with the phone's hardware keys; ADB on the computer is still required to sideload the ZIPs.
 
-Already on a community normal build: use Updater for the latest OTA. Do not reinstall older recovery-fixed or ota-test2 packages; their recovery certificate archive is defective. See the release notes for recovery instructions and initial official-recovery signature warnings.
+### Migration From Official LineageOS 23.2
+
+1. With the phone booted and connected by USB, check the connection and enter recovery:
+
+   ```sh
+   adb devices
+   adb reboot recovery
+   ```
+
+2. In recovery, select **Apply update > Apply from ADB**, then run:
+
+   ```sh
+   adb sideload lineage-23.2-20261005-UNOFFICIAL-Mi439-migration.zip
+   ```
+
+3. Wait for final install status 0. Reboot to Android once and confirm your apps and files are present. After Android has fully booted and ADB is available again, return to recovery:
+
+   ```sh
+   adb reboot recovery
+   ```
+
+4. Select **Apply update > Apply from ADB** again, then install the latest normal ROM:
+
+   ```sh
+   adb sideload lineage-23.2-20261010-UNOFFICIAL-Mi439.zip
+   ```
+
+5. Wait for final install status 0, then select **Reboot system now** in recovery. The normal ROM installs community recovery for future OTA updates.
+
+### Already On A Community Normal Build
+
+Do **not** repeat migration. Use the built-in Updater for OTA releases. For a manual update, boot recovery with `adb reboot recovery`, select **Apply update > Apply from ADB**, then run:
+
+```sh
+adb sideload lineage-23.2-20261010-UNOFFICIAL-Mi439.zip
+```
+
+Wait for status 0 and select **Reboot system now**.
+
+Do not wipe or format data. Do not reinstall older recovery-fixed or ota-test2 packages; their recovery certificate archive is defective. See the release notes for recovery instructions and initial official-recovery signature warnings.
 
 Migration and automatic OTA were tested on one Redmi 8A without Google Apps, microG or Magisk. The latest normal build also installed through OTA without issues or data loss and corrected the System updates layout and full build date. ADB confirmed the newer build, successful recovery installation log and corrected recovery checksum. Other variants, add-ons and hardware functions are not comprehensively validated; data preservation is not guaranteed.
 
