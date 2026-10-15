@@ -4,9 +4,9 @@ Unofficial LineageOS 23.2 for Xiaomi Mi439 variants.
 
 ## Downloads
 
-Use the [latest normal release](https://github.com/unicastbg/mi439-builds/releases/tag/mi439-23.2-20261010). The one-time [migration ZIP remains in the original release](https://github.com/unicastbg/mi439-builds/releases/tag/mi439-23.2-20261005-test):
+Use the [latest normal release](https://github.com/unicastbg/mi439-builds/releases/tag/mi439-23.2-20261015). The one-time [migration ZIP remains in the original release](https://github.com/unicastbg/mi439-builds/releases/tag/mi439-23.2-20261005-test):
 
-- Normal ROM: `lineage-23.2-20261010-UNOFFICIAL-Mi439.zip`.
+- Normal ROM: `lineage-23.2-20261015-UNOFFICIAL-Mi439.zip`.
 - Standalone recovery: `recovery.img` in the latest release.
 - Migration ZIP: filename containing `migration`, only for the first transition from official LineageOS 23.2.
 - Verify each download using its matching `.sha256` file. GitHub's Source code archives are not ROM packages.
@@ -39,7 +39,7 @@ Back up important data first. These migration steps are for an existing official
 4. Select **Apply update > Apply from ADB** again, then install the latest normal ROM:
 
    ```sh
-   adb sideload lineage-23.2-20261010-UNOFFICIAL-Mi439.zip
+   adb sideload lineage-23.2-20261015-UNOFFICIAL-Mi439.zip
    ```
 
 5. Wait for final install status 0, then select **Reboot system now** in recovery. The normal ROM installs community recovery for future OTA updates.
@@ -49,14 +49,14 @@ Back up important data first. These migration steps are for an existing official
 Do **not** repeat migration. Use the built-in Updater for OTA releases. For a manual update, boot recovery with `adb reboot recovery`, select **Apply update > Apply from ADB**, then run:
 
 ```sh
-adb sideload lineage-23.2-20261010-UNOFFICIAL-Mi439.zip
+adb sideload lineage-23.2-20261015-UNOFFICIAL-Mi439.zip
 ```
 
 Wait for status 0 and select **Reboot system now**.
 
 Do not wipe or format data. Do not reinstall older recovery-fixed or ota-test2 packages; their recovery certificate archive is defective. See the release notes for recovery instructions and initial official-recovery signature warnings.
 
-Migration and automatic OTA were tested on one Redmi 8A without Google Apps, microG or Magisk. The latest normal build also installed through OTA without issues or data loss and corrected the System updates layout and full build date. ADB confirmed the newer build, successful recovery installation log and corrected recovery checksum. Other variants, add-ons and hardware functions are not comprehensively validated; data preservation is not guaranteed.
+Migration and automatic OTA were tested on one Redmi 8A without Google Apps, microG or Magisk. The October 10 normal build installed through OTA without issues or data loss and corrected the System updates layout and full build date. The latest October 15 build includes WebView and Bluetooth updates plus short release-note support, but has not yet been phone-tested. ADB confirmed the newer build, successful recovery installation log and corrected recovery checksum. Other variants, add-ons and hardware functions are not comprehensively validated; data preservation is not guaranteed.
 
 After the one-time migration and corrected recovery transition, future community releases use Settings > System > Updater. The [Mi439 OTA feed](https://unicastbg.github.io/mi439-ota/Mi439-23.2.json) offers the latest normal release.
 
